@@ -33,8 +33,8 @@ section#consult.consult(style='width: 50%; background: rgba(231, 202, 202, 0.136
       THIS AGREEMENT made on this day of 2023, between ${deal.to.name}(buyer) and
       ${deal.from.name} incorporated under the Companies Act, 1956 and having its registered office at
       (hereinafter referred to as the SELLER, which expression shall, unless it be repugnant to the context or meaning thereof, be deemed to mean and include its successors and assigns) of the ONE PART and PQR (give name and description of the person or legal entity) (hereinafter referred to as the BUYER which expression shall, unless it be repugnant to the context or meaning thereof, be deemed to mean and include its successors and assigns) of the OTHER PART.` readOnly='' required=''  name='text' id='text1')
-      span status
-      input.box(type='number' style='color: black;' required='' placeholder='' max='1' min='0'  name="agreed" id="agreed")
+      span type 1 to accept 0 to withhold
+      input.box(type='number' style='color: black;' required='' placeholder='' max='1' min='0'  name="agreed" id="agreed" )
       input.box(type='text' style='color: black;' required='' value=`${deal._id}` readOnly name="dealId" id="dealId")
       input.btn1(type='submit' value='ACCEPT DEAL' name='send')
 include footer

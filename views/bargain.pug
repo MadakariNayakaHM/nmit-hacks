@@ -19,10 +19,12 @@ html(lang='en')
             span LIVE TALK
       .crop-image
         img(src='https://images.moneycontrol.com/static-mcnews/2019/08/Farmers_Agriculture_.jpg?impolicy=website&width=770&height=431')
-      form
+      form.bargain
         .form-right
           label(for='fname') Deal ID
-          input#fname(type='text', name='fname', value='101', readonly='')
+          input#dealId(type='text', name='fname', value=`${dealId}`, readonly='')
           label(for='lname') Updated Price
-          input#lname(type='text', name='lname')  
-          button.btn2 LOCK         
+          input#bargainedAmount(type='text', name='lname')  
+          input.btn2(type="submit" value="Bargain")
+  script(src="/js/bargain.js")
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js') 

@@ -154,9 +154,14 @@ exports.bargainPrice=async (req,res,next)=>
 {
 try{
   const dealId=req.body.dealId;
+  bargainDet={
+    bargainAgree:"bargain",
+    status:0,
+    bargainedAmount:req.body.bargainedAmount
+  }
   await dealers.findByIdAndUpdate(
     dealId,
-    { bargain:{bargainPrice:req.body.bargainPrice}},
+    { bargain:bargainDet},
     { new: true, runValidators: true }
   );
 

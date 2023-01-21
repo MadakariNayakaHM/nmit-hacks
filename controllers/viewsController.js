@@ -201,7 +201,7 @@ exports.bargain=async (req,res,next)=>
 {
     try{
         const dealId=req.params.dealId
-        res.status(200).render('bargain')
+        res.status(200).render('bargain',{dealId})
     }catch(e)
     {
         
