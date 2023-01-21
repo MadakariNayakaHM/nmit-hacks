@@ -1,0 +1,32 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width,initial-scale=1.0')
+  title
+  // font awesome cdn link
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css')
+  // Montserrat Font
+  link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap' rel='stylesheet')
+  // Material Icons
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='/css/style.css')
+  style.
+    body{
+    background: url(./images/pic-24.jpg);
+    background-size: cover;}
+include navbar
+section#consult.consult
+  h1.heading(style='margin-top: 6rem;')
+    span Response for
+    |  Trade
+  .row(style='width: 60%; margin-left: 25rem; margin-bottom: 9rem;')
+    form(class="form--bargain")
+      span ID
+      input.box(type='text' required='' placeholder='enter dealer id ' readOnly  name='dealId' id="dealId")
+      span Bargain Amount
+      input.box(type='text' required='' placeholder='Enter bargain amount' name="bargainedPrice" id="bargainedPrice")
+      input.btn1(type='submit' value='SUBMIT' name='send')
+include foooter
+script(src='/js/script.js')
+script(src="/js/bargain.js")
