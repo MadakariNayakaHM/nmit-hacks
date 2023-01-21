@@ -1,5 +1,5 @@
-const User = require('./../models/userModel');
-const Analyst = require('./../models/analystModel');
+const User = require('../models/userModel');
+const Analyst = require('../models/analystModel');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const sharp = require('sharp');
@@ -78,7 +78,7 @@ try
     await sendEmail({
     email:user.email,
     subject:`hi Farmer ${user.name} your post is submitted successfully`,
-    message:` from Bug Slayers you have posted query as  ${user.name} to the analyst ${user2.name}\n please wait for some time until you get responded by the analyst`,
+    message:` from WEB-DEVA you have posted query as  ${user.name} to the analyst ${user2.name}\n please wait for some time until you get responded by the analyst`,
   })} catch(err){console.log("error while sending email")
 console.log(err)}
 
@@ -86,7 +86,7 @@ console.log(err)}
     await sendEmail({
     email:user2.email,
     subject:`hi analyst ${user2.name} you have new post notification`,
-    message:`welcome mail from Bug Slayers you have recived query as analyst,  ${user2.name} from the farmer ${user.name}\n please answer the query to solve his problem`,
+    message:`welcome mail from WEB-DEVA you have recived query as analyst,  ${user2.name} from the farmer ${user.name}\n please answer the query to solve his problem`,
   })} catch(err){console.log("error while sending email")}
   res.status(200).json({
       status: "success",
@@ -121,7 +121,7 @@ const request= await Analyst.findOne({_id:reqId});
   await sendEmail({
   email:user.email,
   subject:`hi analyst ${user.name} your query  is answered successfully`,
-  message:` from Bug Slayers you have answered query as  ${user.name} to the farmer ${request.from.name}\n Thank you`,
+  message:` from WEB-DEVA you have answered query as  ${user.name} to the farmer ${request.from.name}\n Thank you`,
 })} catch(err){console.log("error while sending email")
 console.log(err)}
 
@@ -129,7 +129,7 @@ try{
   await sendEmail({
   email:request.from.email,
   subject:`hi farmer ${request.from.name} you have new  notification of answered Query`,
-  message:`welcome mail from Bug Slayers you have recived solution for query: ${request.query} a   from the analyst ${user.name}\n Thank you`,
+  message:`welcome mail from WEB-DEVA you have recived solution for query: ${request.query} a   from the analyst ${user.name}\n Thank you`,
 })} catch(err){console.log("error while sending email"); console.log(err)}
  res.status(200).json({status:"success"})
  }catch(e)

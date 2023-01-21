@@ -44,11 +44,11 @@ exports.signUp = async (req, res, next) =>
 
     const token = signToken(newUser._id);
       const url=`${req.protocol}://${req.get('host')}/`
-      const message=`you are added to our family Bug-Slayers click this link for login ${url}`
+      const message=`you are added to our family WEB-DEVA click this link for login ${url}`
     try{
       await sendEmail({
       email:newUser.email,
-      subject:`welcome mail from Bug Slayers`,
+      subject:`welcome mail from WEB-DEVA`,
       message
     })} catch(err){console.log("error while sending email")}
     
@@ -76,11 +76,11 @@ module.exports.login = async (req, res, next) =>
       res.status(404).render("error");
     }
     const url=`${req.protocol}://${req.get('host')}/`
-      const message=`you are added to our family Bug-Slayers click this link for interacion ${url}`
+      const message=`you are added to our family WEB-DEVA click this link for interacion ${url}`
     try{
       await sendEmail({
       email:user.email,
-      subject:`welcome mail from Bug Slayers you are loged in as ${user.name}\n Interact with the farmers , dealers and analyst for more benifits`,
+      subject:`welcome mail from WEB-DEVA you are loged in as ${user.name}\n Interact with the farmers , dealers and analyst for more benifits`,
       message
     })} catch(err){console.log("error while sending email")}
     if (user) {
