@@ -53,9 +53,7 @@ const dealersSchema=mongoose.Schema({
         }
 
       }
-      
-
-
+    
 })
 
 
