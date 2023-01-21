@@ -14,8 +14,7 @@ const multerFilter = (req, file, cb) =>
       if (file.mimetype.startsWith('image')) 
       {
         cb(null, true)
-
-    }
+      }
     else {
         cb((req, res) => { res.status(404).json({ status: "success", message: "upload only photos" }) }, false);
     }
