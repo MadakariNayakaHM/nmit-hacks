@@ -23,7 +23,7 @@ if(user.roles=="farmer")
         each u in users 
           if(u.roles=="analyst")
                   .swiper-slide.slide
-                    img(src=`/images/userPhotos/${u.photo}` alt='')
+                    img(src=`/images/userPhotos/${u.photo}` alt='no pic')
                     h3=u.name
                     h4
                       i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
@@ -43,7 +43,7 @@ if(user.roles=="farmer")
         each u in users
           if(u.roles=="dealer")
               .swiper-slide.slide
-                img(src=`/images/userPhotos/${u.photo}`  alt='')
+                img(src=`/images/userPhotos/${u.photo}`  alt='np pic')
                 h3=u.name
                 h4
                   i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
@@ -75,10 +75,13 @@ if(user.roles=="analyst")
                     i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
                     a(href=`tel:${a.from.phone}`) Phone Number
                   h4
-                    | Query:
+                    | Query
                     p=a.query
         
-                  a.btn1(href=`/answerQuery/${a._id}`) Answer Query
+                  a.btn1(href=`/answerQuery/${a._id}`) Answer
+                  
+                  
+                  
         |  
         .swiper-pagination
     // analysts section ends
@@ -87,23 +90,8 @@ if(user.roles=="analyst")
         | Answered 
         span query
       |  
-      .swiper.analyst-slider
-        .swiper-wrapper
-          each a in analyst
-            if(user.phone==a.to.phone && a.Accept==1)
-                .swiper-slide.slide
-                  img(src=`/images/userPhotos/${a.from.photo}`, alt='')
-                  h3=a.from.name
-                  h4
-                    i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
-                    a(href=`tel:${a.from.phone}`) Phone Number
-                  h4
-                    | Query:
-                    p=a.query
-                
-                  a.btn1(href='#') View
-        |  
-        .swiper-pagination
+
+ 
 if(user.roles=="dealer")
     // home section ends
     // Analysts section starts

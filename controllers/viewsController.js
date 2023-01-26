@@ -28,7 +28,8 @@ try{
     if(user)
     {   const analyst= await Analyst.find();
         const dealer= await Dealers.find();
-
+        console.log(analyst)
+        console.log(dealer)
         res.status(200).render('base',{users, user, analyst ,dealer});
     }
     
@@ -209,4 +210,11 @@ exports.bargain=async (req,res,next)=>
         console.log(e)
 
     }
+}
+exports.viewBargain=async (req,res, next)=>
+{
+    const idUser = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id });
+    const Deals=await  dealers.find()
+    console.log(Deals)
+    res.status(200).render("viewBargain",{Deals, idUser})
 }

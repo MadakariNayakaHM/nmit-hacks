@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/css/vb.css')
+    title Document
+  body
+    .container
+      .heading
+        h1
+          strong BARGAIN
+            AGREEMENT
+      | &#x9;
+      title Pop-up Box type | Alert Box
+      | &#x9;
+      style.
+        h1{
+        color:green;
+        }
+      | &#x9;
+      .container2
+        .image
+          img(src='https://cdn.fastmarkets.com/dims4/default/e895f17/2147483647/strip/true/crop/4288x1847+0+500/resize/817x352!/quality/90/?url=https%3A%2F%2Ffastmarkets-production-web.s3.amazonaws.com%2Fbrightspot%2F51%2Fec%2Fcc0445a54be790029506730ce5b7%2Fgettyimages-175602101.jpg')
+        |  
+    each d in Deals
+            if(d.from._id== idUser)
+                .box.centered0
+                    h1=d.to.name
+                    h1 expected price
+                    h1=d.expectedPrice
+                    h1 Updated price 
+                    h1=d.bargain.bargainedAmount
+    
