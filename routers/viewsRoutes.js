@@ -17,4 +17,5 @@ Router.route('/dashboard2').get(authController.protect, viewsController.dashboar
 Router.route('/dashboard3').get(authController.protect, viewsController.dashboard3);
 Router.route('/bargain/:dealId').get(authController.protect,authController.ristrictTo('dealer'), viewsController.bargain)
 Router.route('/viewBargain').get(viewsController.viewBargain);
+Router.route('/viewWether').get(viewsController.wether);
 module.exports=Router

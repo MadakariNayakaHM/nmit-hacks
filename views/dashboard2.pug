@@ -57,13 +57,14 @@ head
             th State
             th Amount
             th Bill
-          each d in dealers 
-              tr
-                td=d.from.name
-                td=d.place
-                td=d.expectedPrice
-                td
-                a.btn1(href='#') View
+          each d in dealers
+            if(d.to.phone==user.phone && d.Accept==1)
+                tr
+                  td=d.from.name
+                  td=d.place
+                  td=d.expectedPrice
+                  td
+                  a.btn1(href='#') View
          
 
           

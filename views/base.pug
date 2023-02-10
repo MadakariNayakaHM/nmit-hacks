@@ -57,17 +57,74 @@ if(user.roles=="farmer")
               .swiper-pagination
 
 if(user.roles=="analyst")
-    // home section ends
-    // Analysts section starts
+    //- // home section ends
+    //- // Analysts section starts
+    //- section#analysts.analysts
+    //-   h1.heading
+    //-     | received 
+    //-     span applications
+    //-   |  
+    //-   .swiper.analyst-slider
+    //-     .swiper-wrapper
+    //-       each a in analyst
+    //-         if(user)
+    //-             .swiper-slide.slide
+    //-               img(src=`/images/userPhotos/${a.from.photo}`, alt='')
+    //-               h3=a.from.name
+    //-               h4
+    //-                 i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
+    //-                 a(href=`tel:${a.from.phone}`) Phone Number
+    //-               h4
+    //-                 | Query
+    //-                 p=a.query
+        
+    //-               a.btn1(href=`/answerQuery/${a._id}`) Answer
+                  
+                  
+                  
+    //-     |  
+    //-     .swiper-pagination
+    //- // analysts section ends
+    //- section#analysts.analysts
+    //-   h1.heading
+    //-     | Answered 
+    //-     span query
+      |  
+    section#analysts.analysts
+          h1.heading
+            | received 
+            span applications
+          |  
+          .swiper.analyst-slider
+            .swiper-wrapper
+              each a in analyst
+                if(user.phone==a.to.phone && a.Accept==0)
+                    .swiper-slide.slide
+                      img(src=`/images/userPhotos/${a.from.photo}`, alt='')
+                      h3=a.from.name
+                      h4
+                        i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
+                        a(href=`tel:${a.from.phone}`) Phone Number
+                      h4
+                        | Expected price:
+                        p=a.expectedPrice
+            
+                      a.btn1(href=`/answerQuery/${a._id}`) Answer Query
+                      
+                     
+                      
+            |  
+            .swiper-pagination
+    // analysts section ends
     section#analysts.analysts
       h1.heading
-        | received 
-        span applications
+        | Answered 
+        span Query
       |  
       .swiper.analyst-slider
         .swiper-wrapper
           each a in analyst
-            if(user.phone==a.to.phone && a.Accept==0)
+            if(user.phone==a.to.phone && a.Accept==1)
                 .swiper-slide.slide
                   img(src=`/images/userPhotos/${a.from.photo}`, alt='')
                   h3=a.from.name
@@ -75,22 +132,12 @@ if(user.roles=="analyst")
                     i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
                     a(href=`tel:${a.from.phone}`) Phone Number
                   h4
-                    | Query
-                    p=a.query
-        
-                  a.btn1(href=`/answerQuery/${a._id}`) Answer
-                  
-                  
-                  
+                    | expected price
+                    p=a.expectedPrice
+                
+                  a.btn1(href='#') View
         |  
         .swiper-pagination
-    // analysts section ends
-    section#analysts.analysts
-      h1.heading
-        | Answered 
-        span query
-      |  
-
  
 if(user.roles=="dealer")
     // home section ends

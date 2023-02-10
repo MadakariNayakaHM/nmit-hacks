@@ -29,7 +29,7 @@ try{
     {   const analyst= await Analyst.find();
         const dealer= await Dealers.find();
         console.log(analyst)
-        console.log(dealer)
+        // console.log(dealer)
         res.status(200).render('base',{users, user, analyst ,dealer});
     }
     
@@ -149,11 +149,11 @@ exports.dashboard2= async(req,res,next)=>
             {
                 noOfQueries++;
             }
-            if(dealers[i].to.phone===user.phone && analyst.Accept==1)
+            if(dealers[i].to.phone===user.phone && dealers.Accept==1)
             {
                 noOfResponse++;
             }
-            if(dealers[i].to.phone===user.phone && analyst.Accept==1)
+            if(dealers[i].to.phone===user.phone && dealers.Accept==1)
             {
                 amount+=parseInt(dealers[i].expectedPrice)
             }
@@ -217,4 +217,8 @@ exports.viewBargain=async (req,res, next)=>
     const Deals=await  dealers.find()
     console.log(Deals)
     res.status(200).render("viewBargain",{Deals, idUser})
+}
+exports.wether= async(req,res)=>
+{
+    res.status(200).render('wether')
 }

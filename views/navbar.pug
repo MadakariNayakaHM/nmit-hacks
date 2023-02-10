@@ -9,13 +9,14 @@ header.header
             if(user)
               a(href='/') home
               a(href='/me') View profile
-              //- if(user.roles==="farmer")
-              //-   a(href='/dashboard') view Dashboard
-              //- if(user.roles==="dealer")
-              //-   a(href='/dashboard2') view Dashboard
-              //- if(user.roles==="analyst")
-              //-   a(href='/dashboard3') view Dashboard
-              //- a(href="https://drive.google.com/file/d/15twY7egIZTpYKLU5TkegBvwjchxE4eA-/view?usp=share_link") view manual
+              a(href='/viewWether') View Wether
+              if(user.roles==="farmer")
+                a(href='/dashboard') view Dashboard
+              if(user.roles==="dealer")
+                a(href='/dashboard2') view Dashboard
+              if(user.roles==="analyst")
+                a(href='/dashboard3') view Dashboard
+              a(href="https://drive.google.com/file/d/15twY7egIZTpYKLU5TkegBvwjchxE4eA-/view?usp=share_link") view manual
               form(class="logout--form")
                 input.btn1(type="submit" value="logout" id="logout" style="margin-left:20px;")
             else
