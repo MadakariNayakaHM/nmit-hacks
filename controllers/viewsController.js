@@ -213,7 +213,9 @@ exports.bargain=async (req,res,next)=>
 }
 exports.viewBargain=async (req,res, next)=>
 {
+
     const idUser = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id });
+    console.log(idUser);
     const Deals=await  dealers.find()
     console.log(Deals)
     res.status(200).render("viewBargain",{Deals, idUser})
@@ -221,4 +223,8 @@ exports.viewBargain=async (req,res, next)=>
 exports.wether= async(req,res)=>
 {
     res.status(200).render('wether')
+}
+exports.chatBot=async(req,res)=>
+{
+    res.status(200).render('chatBot')
 }
