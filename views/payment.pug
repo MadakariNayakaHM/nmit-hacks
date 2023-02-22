@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // custom css file link
+    link(rel='stylesheet', href='/css/style2.css')
+  body
+    .heading
+      span PAYMENT 
+      |  GATEWAY
+    .container
+      form(action='')
+        .row
+          .col
+            h3.title payment
+            .row
+              .inputBox
+                span Total Amount :
+                p=d.bargain.bargainedAmount
+              .inputBox
+                span cards accepted :
+                img(src='card_img.png', alt='')
+            .inputBox
+              span name on card :
+              input(type='text', placeholder='mr. john deo', required='')
+            .inputBox
+              span credit card number :
+              input(type='number', placeholder='1111-2222-3333-4444', required='')
+            .inputBox
+              span exp month :
+              input(type='text', placeholder='january', required='')
+            .flex
+              .inputBox
+                span exp year :
+                input(type='number', placeholder='2022', required='')
+              .inputBox
+                span CVV :
+                input(type='text', placeholder='1234', required='')
+        button.btn(type='button')
+          a(href=`/tracker/${dealId}`)
+            span Proceed to Checkout

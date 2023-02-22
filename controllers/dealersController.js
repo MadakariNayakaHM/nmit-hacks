@@ -168,3 +168,20 @@ try{
 }catch(e){console.log("erroe at bargain dealer")
 console.log(e)}
 }
+
+exports.acceptBargain=async (req,res)=>
+{
+  const dealId=req.body.dealId;
+  console.log(dealId);
+  try{
+    await dealers.findByIdAndUpdate(
+      dealId,
+      { Accept: 1, qualityCheck: 1 ,aggrement:{text:req.body.text,agreed:1},bargain:{status:1}},
+      { new: true, runValidators: true }
+    );
+  }catch(e)
+  {
+    console.log("error at accepting bargain price");
+    console.log(e);
+  }
+}

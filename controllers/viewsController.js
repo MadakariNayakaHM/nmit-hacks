@@ -215,9 +215,7 @@ exports.viewBargain=async (req,res, next)=>
 {
 
     const idUser = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id });
-    console.log(idUser);
     const Deals=await  dealers.find()
-    console.log(Deals)
     res.status(200).render("viewBargain",{Deals, idUser})
 }
 exports.wether= async(req,res)=>
@@ -227,4 +225,23 @@ exports.wether= async(req,res)=>
 exports.chatBot=async(req,res)=>
 {
     res.status(200).render('chatBot')
+}
+exports.viewPrice=async(req,res)=>{
+    res.status(200).render('map');
+}
+exports.payment=async(req,res)=>
+{  const dealId= req.params.dealId
+    console.log(dealId)
+    const d= await dealers.findById(req.params.dealId)
+    res.status(200).render('payMain',{dealId, d});
+}
+exports.payment2=async(req,res)=>
+{  const dealId= req.params.dealId
+    console.log(dealId)
+    const d= await dealers.findById(req.params.dealId)
+    res.status(200).render('payment',{dealId, d});
+}
+exports.tracker=async(req,res)=>
+{   const dealId= req.params.dealId
+    res.status(200).render('tracker',{dealId});
 }

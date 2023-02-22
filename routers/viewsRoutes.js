@@ -19,4 +19,8 @@ Router.route('/bargain/:dealId').get(authController.protect,authController.ristr
 Router.route('/viewBargain').get(viewsController.viewBargain);
 Router.route('/viewWether').get(viewsController.wether);
 Router.route('/chatBot').get(viewsController.chatBot);
+Router.route('/viewPrice').get(viewsController.viewPrice)
+Router.route('/paymentMain/:dealId').get(viewsController.payment);
+Router.route('/payment/:dealId').get(viewsController.payment2);
+Router.route('/tracker/:dealId').get(viewsController.tracker);
 module.exports=Router

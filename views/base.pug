@@ -14,6 +14,9 @@ section#home.home
   .video-container
     video#video-slider(src='/images/application/jit1.mp4' loop='' autoplay='' muted='')
 if(user.roles=="farmer")
+  a.btn1(href='/chatBot' style="margin-left:95%; position:sticky; top: 0;")
+    i.fab.fa-facebook-messenger 
+      
   section#analysts.analysts
     h1.heading
       | our 
@@ -106,8 +109,8 @@ if(user.roles=="analyst")
                         i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
                         a(href=`tel:${a.from.phone}`) Phone Number
                       h4
-                        | Expected price:
-                        p=a.expectedPrice
+                        | query:
+                        p=a.query
             
                       a.btn1(href=`/answerQuery/${a._id}`) Answer Query
                       
@@ -136,9 +139,9 @@ if(user.roles=="analyst")
                     p=a.expectedPrice
                 
                   a.btn1(href='#') View
-        |  
-        .swiper-pagination
- 
+        
+
+
 if(user.roles=="dealer")
     // home section ends
     // Analysts section starts
@@ -187,7 +190,7 @@ if(user.roles=="dealer")
                     | expected price
                     p=a.expectedPrice
                 
-                  a.btn1(href='#') View
+                  a.btn1(href=`/paymentMain/${a._id}`) Proceed to pay
         |  
         .swiper-pagination
 section#about.about(style='margin-top: 0rem;')
