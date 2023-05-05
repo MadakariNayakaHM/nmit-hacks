@@ -9,7 +9,6 @@ const analystSchema=mongoose.Schema({
         required: [true, 'you should have posts related to an analysts']
       },
       to: {
-
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: [true, 'should belongs to analyst']
@@ -17,6 +16,7 @@ const analystSchema=mongoose.Schema({
       cropPhoto:[String],
       quantity:String,
       place:String,
+      productDescription:String,
       query:String,
       Accept:
       {

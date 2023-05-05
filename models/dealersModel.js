@@ -18,6 +18,7 @@ const dealersSchema=mongoose.Schema({
       quantity:String,
       place:String,
       expectedPrice:Number,
+      productDescription:String,
       Accept:{
         type:Number,
         min:0,
@@ -82,7 +83,7 @@ dealersSchema.pre(/^find/, function(next) {
   
   
 
-  const Dealers = mongoose.model("dealers", dealersSchema);
+  const Dealers = mongoose.model("Dealers", dealersSchema);
 module.exports = Dealers;
 
 

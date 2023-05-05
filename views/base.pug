@@ -111,7 +111,9 @@ if(user.roles=="analyst")
                       h4
                         | query:
                         p=a.query
-            
+                      h4
+                        | Description
+                        p=a.productDescription
                       a.btn1(href=`/answerQuery/${a._id}`) Answer Query
                       
                      
@@ -137,7 +139,9 @@ if(user.roles=="analyst")
                   h4
                     | expected price
                     p=a.expectedPrice
-                
+                  h4
+                    | Description
+                    p=a.productDescription
                   a.btn1(href='#') View
         
 
@@ -163,7 +167,9 @@ if(user.roles=="dealer")
                   h4
                     | Expected price:
                     p=a.expectedPrice
-        
+                  h4
+                    | Description
+                    p=a.productDescription
                   a.btn1(href=`/acceptDeal/${a._id}`) Accept deal
                   
                   a.btn1(href=`/bargain/${a._id}`) Bargain
@@ -189,10 +195,88 @@ if(user.roles=="dealer")
                   h4
                     | expected price
                     p=a.expectedPrice
+                  h4
+                    | Description
+                    p=a.productDescription
                 
                   a.btn1(href=`/paymentMain/${a._id}`) Proceed to pay
         |  
         .swiper-pagination
+
+
+if(user.roles=="admin")
+    // home section ends
+    // Analysts section starts
+    section#analysts.analysts
+      h1.heading
+        | Our
+        span Farmer 
+      |  
+      .swiper.analyst-slider
+        .swiper-wrapper
+          each a in users
+            if(a.roles==='farmer')
+                .swiper-slide.slide
+                  img(src=`/images/userPhotos/${a.photo}`, alt='')
+                  h3=a.name
+                  h4
+                    i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
+                    a(href=`tel:${a.phone}`) Phone Number
+                  
+                  a.btn1(href=`/user/${a._id}`) view Detail
+                  
+      
+                  
+        |  
+        .swiper-pagination
+
+    section#analysts.analysts
+      h1.heading
+        | Our
+        span Dealers 
+      |  
+      .swiper.analyst-slider
+        .swiper-wrapper
+          each a in users
+            if(a.roles==='dealer')
+                .swiper-slide.slide
+                  img(src=`/images/userPhotos/${a.photo}`, alt='')
+                  h3=a.name
+                  h4
+                    i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
+                    a(href=`tel:${a.phone}`) Phone Number
+                  
+                  a.btn1(href=`/user/${a._id}`) view Detail
+                  
+      
+                  
+        |  
+        .swiper-pagination
+
+    section#analysts.analysts
+      h1.heading
+        | Our
+        span Analyst
+      |  
+      .swiper.analyst-slider
+        .swiper-wrapper
+          each a in users
+            if(a.roles==='analyst')
+                .swiper-slide.slide
+                  img(src=`/images/userPhotos/${a.photo}`, alt='')
+                  h3=a.name
+                  h4
+                    i.fas.fa-phone(style='font-size: medium; margin-right: 1rem; color: green;')
+                    a(href=`tel:${a.phone}`) Phone Number
+                  
+                  a.btn1(href=`/user/${a._id}`) view Detail
+              
+                  
+      
+                  
+        |  
+        .swiper-pagination
+    
 section#about.about(style='margin-top: 0rem;')
     h1.heading
       span about

@@ -5,6 +5,7 @@ const Analyst=require('./../models/analystModel');
 const dealers=require('./../models/dealersModel');
 const path = require('path');
 const Dealers = require('./../models/dealersModel');
+const orders= require('./../models/ordersModel');
 
 exports.homePage=async (req,res,next)=>
 {
@@ -244,4 +245,42 @@ exports.payment2=async(req,res)=>
 exports.tracker=async(req,res)=>
 {   const dealId= req.params.dealId
     res.status(200).render('tracker',{dealId});
+}
+exports.productPage= async(req,res)=>
+{
+    const dealer= await Dealers.find();
+    res.status(200).render('productPage',{dealer});
+}
+exports.analyticsPage= async(req,res)=>
+{
+    const idUser = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id });
+    const dealers= await Dealers.find();
+    res.status(200).render('analytics',{dealers,idUser})
+
+}
+exports.farmerStats= async(req,res)=>
+{
+
+}
+
+exports.userDeatils=async(req,res)=>
+{
+const user = await User.findById(req.params.userId);
+console.log(user)
+res.status(200).render('userDetails',{user})
+}
+exports.farmersGrowth=async(req,res)=>
+{
+    const users= await User.find();
+    res.status(200).render('framerGrowth',{users})
+}
+exports.orderStatus=async(req,res)=>{
+    const order= await orders.find();
+    console.log(order)
+    res.status(200).render('orderStatus',{order});
+
+}
+exports.removeUser= async(req,res,next)=>
+{
+    res.status(200).render('removeUser');
 }

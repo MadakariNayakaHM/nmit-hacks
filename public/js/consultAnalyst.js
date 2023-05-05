@@ -29,6 +29,7 @@ const consultAnalyst=async (data,type)=>
     form.append('cropPhoto', document.getElementById('cropPhoto').files);
     form.append('place', document.getElementById('place').value);
     form.append('query', document.getElementById('query').value);
+    form.append('productDescription',document.getElementById('cropDesc').value)
     console.log(form);
 
     consultAnalyst(form, 'data');

@@ -57,7 +57,7 @@ try
   
   const token = req.cookies.jwt;
   const idUser = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id })
-  const createPost = await Analyst.create({ cropPhoto: req.body.cropPhoto, from: idUser, to: req.body.to, quantity: req.body.quantity, place: req.body.place, query: req.body.query });
+  const createPost = await Analyst.create({ cropPhoto: req.body.cropPhoto, from: idUser, to: req.body.to, quantity: req.body.quantity, place: req.body.place, query: req.body.query, productDescription:req.body.productDescription});
   const user = await User.findOne({ _id: idUser })
   const user2= await User.findOne({_id:req.body.to})
   const dobj = Date.now();

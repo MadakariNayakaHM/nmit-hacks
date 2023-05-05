@@ -23,4 +23,10 @@ Router.route('/viewPrice').get(viewsController.viewPrice)
 Router.route('/paymentMain/:dealId').get(viewsController.payment);
 Router.route('/payment/:dealId').get(viewsController.payment2);
 Router.route('/tracker/:dealId').get(viewsController.tracker);
+Router.route('/productPage').get(viewsController.productPage);
+Router.route('/analytics').get(viewsController.analyticsPage);
+Router.route('/user/:userId').get(viewsController.userDeatils);
+Router.route('/farmersGrowth').get(viewsController.farmersGrowth);
+Router.route('/orderStatus').get(viewsController.orderStatus);
+Router.route('/removeUser').get(viewsController.removeUser);
 module.exports=Router

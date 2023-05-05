@@ -65,6 +65,7 @@ exports.createPost = async (req, res, next) => {
       quantity: req.body.quantity,
       place: req.body.place,
       expectedPrice: req.body.expectedPrice,
+      productDescription:req.body.productDescription
     });
     const user = await User.findOne({ _id: idUser });
     const user2=await User.find({_id:req.body.to});
