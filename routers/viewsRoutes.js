@@ -30,4 +30,6 @@ Router.route('/farmersGrowth').get(viewsController.farmersGrowth);
 Router.route('/orderStatus').get(viewsController.orderStatus);
 Router.route('/removeUser').get(viewsController.removeUser);
 Router.route('/getNews').get(viewsController.getNews);
+Router.route('/createWorkshop').get(viewsController.createWorkshop);
+Router.route('/viewWorkshop').get(viewsController.viewWorkshop);
 module.exports=Router

@@ -15,6 +15,8 @@ header.header
                 a(href='/dashboard') view Dashboard
                 a(href='/chatBot') Talk to robo
                 a(href='/viewPrice') see Market price
+                a(href='/viewWorkshop') view Service
+                
                 a(href='/analytics') Analytics
                 a(href='/viewBargain') ViewBargain
               if(user.roles==="dealer")
@@ -25,6 +27,7 @@ header.header
               if(user.roles==="analyst")
                 a(href='/dashboard3') view Dashboard
                 a(href='/viewPrice') see Market price
+                a(href='/createWorkshop') add service
               if(user.roles==="admin")
                 a(href='/farmersGrowth') view Farmers Growth
                 a(href='/orderStatus') Order Status

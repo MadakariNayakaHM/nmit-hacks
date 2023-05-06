@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
 const Analyst = require('../models/analystModel');
+const post=require('./../models/postModel');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const sharp = require('sharp');
@@ -136,4 +137,14 @@ try{
   console.log("error at accept query");
   console.log(e);
  }
+}
+exports.createWorkshop=async (req,res)=>{
+  try{
+
+    const idUser = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id })
+    const workshop = await post.create({from:idUser, eventName:req.body.eventName, eventAbout:req.body.eventAbout, eventDate:req.body.eventDate, eventTime:req.body.eventTime})
+  }catch(e){
+    console.log("erroe in creating workshop");
+    console.log(e);
+  }
 }

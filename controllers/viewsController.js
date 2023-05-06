@@ -6,6 +6,7 @@ const dealers=require('./../models/dealersModel');
 const path = require('path');
 const Dealers = require('./../models/dealersModel');
 const orders= require('./../models/ordersModel');
+const post=require('./../models/postModel')
 
 exports.homePage=async (req,res,next)=>
 {
@@ -288,4 +289,17 @@ exports.removeUser= async(req,res,next)=>
 exports.getNews=async(req,res,next)=>
 {
     res.status(200).render('news');
+}
+
+exports.createWorkshop=async (req,res,next)=>
+{
+    const id=jwt.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => { return decoded.id });
+    const user= await User.findById(id);
+    const from = user._id
+    res.status(200).render('createWorkshop',{from});
+}
+exports.viewWorkshop= async(req,res,next)=>{
+    const posts= await post.find();
+    console.log(posts)
+    res.status(200).render('viewWorkshop',{posts});
 }
