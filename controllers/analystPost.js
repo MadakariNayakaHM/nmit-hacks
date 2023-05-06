@@ -171,21 +171,35 @@ async function getPrice(state, commodity) {
 }
 
 exports.getMarketPrices= async ()=> {
-  const states = ['Andhra-Pradesh', 'Karnataka', 'Kerala', 'Tamil-Nadu'];
-  const commodities = ['arecanut', 'coconut'];
+//   const states = ['Andhra-Pradesh', 'Karnataka', 'Kerala', 'Tamil-Nadu'];
+//   const commodities = ['arecanut', 'coconut'];
 
-  const marketPrices = {};
+//   const marketPrices = {};
 
-  for (const state of states) {
-    const statePrices = {};
-    for (const commodity of commodities) {
-      const price = await getPrice(state, commodity);
-      statePrices[commodity] = price;
-    }
-    marketPrices[state] = statePrices;
-  }
-console.log(marketPrices)
-  return marketPrices;
+//   for (const state of states) {
+//     const statePrices = {};
+//     for (const commodity of commodities) {
+//       const price = await getPrice(state, commodity);
+//       statePrices[commodity] = price;
+//     }
+//     marketPrices[state] = statePrices;
+//   }
+// console.log(marketPrices)
+//   return marketPrices;
+
+
+const { data } = await axios({
+  data: {
+  apiKey: '71dbad764e2c7359f0b05710d075abe3',
+  url: 'https://google.com'
+  },
+  headers: { 'Content-Type': 'application/json' },
+  method: 'POST',
+  url: 'https://async.scraperapi.com/jobs'
+  });
+  
+  console.log(data);
+
 }
 
 // getMarketPrices().then((prices) => console.log(prices));

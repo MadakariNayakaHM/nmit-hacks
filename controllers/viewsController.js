@@ -7,7 +7,9 @@ const path = require('path');
 const Dealers = require('./../models/dealersModel');
 const orders= require('./../models/ordersModel');
 const post=require('./../models/postModel')
+const requests = require('requests');
 
+var json = require('json');
 exports.homePage=async (req,res,next)=>
 {
 try{
@@ -302,4 +304,16 @@ exports.viewWorkshop= async(req,res,next)=>{
     const posts= await post.find();
     console.log(posts)
     res.status(200).render('viewWorkshop',{posts});
+}
+
+exports.actualMarketPrice=async(req,res,next)=>
+{
+    
+areca= {"Kerala": "Rs 36000 / Quintal", "Karnataka": "Rs 56299 / Quintal", "Goa": "Rs 32100 / Quintal", "Nagaland": "Rs 2600 / Quintal", "Meghalaya": "Rs 138000 / Quint"}
+coco={"Goa": "Rs 1275 / Quintal", "Kerala": "Rs 3500 / Quintal", "Uttrakhand": "Rs 1600 / Quintal", "Maharashtra": "Rs 16 / Quintal", "Tamil Nadu": "Rs 550 / Quintal"}
+
+const aEntry = Object.entries(areca);
+console.log(aEntry);
+
+res.status(200).render('dummy');
 }
