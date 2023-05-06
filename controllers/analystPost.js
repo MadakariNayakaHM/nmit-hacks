@@ -6,7 +6,8 @@ const multer = require('multer');
 const sharp = require('sharp');
 const nodemailer=require('nodemailer')
 const sendEmail=require('../email');
-
+const axios = require('axios');
+const cheerio = require('cheerio');
 const multerStorage = multer.memoryStorage();
 const multerFilter = (req, file, cb) => 
 {
@@ -148,3 +149,43 @@ exports.createWorkshop=async (req,res)=>{
     console.log(e);
   }
 }
+
+
+
+async function getPrice(state, commodity) {
+  const url = `https://www.commodityonline.com/mandiprices/${commodity}/${state}`;
+  const options = {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+    }
+  }
+  try {
+    const { data } = await axios.get(url, options);
+    const $ = cheerio.load(data);
+    const price = $('.mpy-pricetable table tbody tr:first-child td:nth-child(3)').text().trim();
+    return price !== 'N/a' && price !== undefined ? price : null;
+  } catch (error) {
+    console.error(`Error while fetching price for ${commodity} in ${state}: ${error.message}`);
+    return null;
+  }
+}
+
+exports.getMarketPrices= async ()=> {
+  const states = ['Andhra-Pradesh', 'Karnataka', 'Kerala', 'Tamil-Nadu'];
+  const commodities = ['arecanut', 'coconut'];
+
+  const marketPrices = {};
+
+  for (const state of states) {
+    const statePrices = {};
+    for (const commodity of commodities) {
+      const price = await getPrice(state, commodity);
+      statePrices[commodity] = price;
+    }
+    marketPrices[state] = statePrices;
+  }
+console.log(marketPrices)
+  return marketPrices;
+}
+
+// getMarketPrices().then((prices) => console.log(prices));

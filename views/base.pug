@@ -36,7 +36,9 @@ if(user.roles=="farmer")
                       i.fas.fa-email(style='font-size: medium; margin-right: 1rem; color: green;')
                       a(href=`#`)=u.email
                     a.btn1(href=`/consultAnalyst/${u._id}`) Go For Consultation
-        
+                    button.btn
+                        a(href='https://madakarinayakahm.github.io/agora/')
+                            span LIVE TALK
       .swiper-pagination
   section#analysts.analysts
     h1.heading
@@ -116,7 +118,7 @@ if(user.roles=="analyst")
                         | Description
                         p=a.productDescription
                       a.btn1(href=`/answerQuery/${a._id}`) Answer Query
-                      
+
                      
                       
             |  

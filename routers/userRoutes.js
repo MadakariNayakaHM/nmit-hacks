@@ -13,4 +13,5 @@ const adminController=require('./../controllers/adminController');
  Router.route('/createDeal').post(authController.protect,authController.ristrictTo("farmer","analyst"),dealersController.upload.array("cropPhoto",5),dealersController.resizePhoto,dealersController.createPost)
  Router.route('/payment').post(paymentController.createOrder);
  Router.route('/removeUser').delete(adminController.removeUser);
+ Router.route('/marketPrice').get(analystController.getMarketPrices);
  module.exports=Router;

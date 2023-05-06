@@ -8,6 +8,7 @@ html(lang='en')
 body(style='background-color: black')
     include navbar
 section(style="margin-top:10rem;")
+h1(style="text-align:center; color:green;") Recent announcements
     each p in posts
         .card.text-white.mb-10(style='max-width: 100rem;')
             .card-header=p.eventName
