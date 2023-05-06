@@ -13,7 +13,13 @@ head
       span Home
     a(href='/me')
       span profile
-  
+section(style="display:block; width:100px; height:100px; margin:auto;")
+  #google_element
+  script(src='https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate')
+  script.
+    function loadGoogleTranslate() {
+    new google.translate.TranslateElement("google_element");
+    }  
 .container9
   .header
     .nav

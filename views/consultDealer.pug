@@ -6,6 +6,13 @@ head
         background: url(/images/application/pic-24.jpg);
         background-size: cover;}
 include navbar
+section(style="display:block; width:100px; height:100px; margin:auto;")
+  #google_element
+  script(src='https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate')
+  script.
+    function loadGoogleTranslate() {
+    new google.translate.TranslateElement("google_element");
+    }
 section(style='background-color:black; margin-top: 13rem; margin-bottom: 4rem;')
   .container.py-5
     .row

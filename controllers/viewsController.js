@@ -284,3 +284,8 @@ exports.removeUser= async(req,res,next)=>
 {
     res.status(200).render('removeUser');
 }
+
+exports.getNews=async(req,res,next)=>
+{
+    res.status(200).render('news');
+}

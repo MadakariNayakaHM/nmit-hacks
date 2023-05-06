@@ -9,7 +9,8 @@ header.header
             if(user)
               a(href='/') home
               a(href='/me') View profile
-              a(href='/viewWether') View Wether
+              a(href='/viewWether') View Weather
+              a(href='/getNews') Top News
               if(user.roles==="farmer")
                 a(href='/dashboard') view Dashboard
                 a(href='/chatBot') Talk to robo
@@ -29,13 +30,14 @@ header.header
                 a(href='/orderStatus') Order Status
                 a(href='/viewPrice') see Market price
                 a(href='/removeUser') remove user
-              a(href="https://drive.google.com/file/d/15twY7egIZTpYKLU5TkegBvwjchxE4eA-/view?usp=share_link") view manual
+              
               form(class="logout--form")
                 input.btn1(type="submit" value="logout" id="logout" style="margin-left:20px;")
             else
               a(href='/') home
               a(href='/me') View profile
               a(href="https://drive.google.com/file/d/15twY7egIZTpYKLU5TkegBvwjchxE4eA-/view?usp=share_link") view manual
+              
               form(class="logout--form")
                 input.btn1(type="submit" value="logout" id="logout" style="margin-left:20px;")
 

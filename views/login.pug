@@ -7,7 +7,13 @@ head
       link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap', rel='stylesheet')
       link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined', rel='stylesheet')
       link(rel='stylesheet', href='/css/style.css')
-
+section(style="display:block; width:100px; height:100px; margin:auto;")
+  #google_element
+  script(src='https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate')
+  script.
+    function loadGoogleTranslate() {
+    new google.translate.TranslateElement("google_element");
+    }
 .container-fluid.h-custom
   .row.d-flex.justify-content-center.align-items-center.h-100
     .col-md-9.col-lg-6.col-xl-5

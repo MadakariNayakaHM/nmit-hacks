@@ -11,6 +11,7 @@ section#home.home
     p
       | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.
     a.btn(href='#') Explore More
+    
   .video-container
     video#video-slider(src='/images/application/jit1.mp4' loop='' autoplay='' muted='')
 if(user.roles=="farmer")
@@ -291,12 +292,14 @@ section#about.about(style='margin-top: 0rem;')
         p
           | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil voluptas culpa! Neque consectetur obcaecati sapiente?
         a.btn1(href='#') learn more   
+
 include footer
+
 // footer section ends
 // swiper js link
 script(src='https://unpkg.com/swiper@8/swiper-bundle.min.js')
 // custom js file link
-script(src='/js/script.js')
+script(src='/js/script.js')  
 if(user)
   script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js')
   script(src='/js/logout.js')

@@ -29,4 +29,5 @@ Router.route('/user/:userId').get(viewsController.userDeatils);
 Router.route('/farmersGrowth').get(viewsController.farmersGrowth);
 Router.route('/orderStatus').get(viewsController.orderStatus);
 Router.route('/removeUser').get(viewsController.removeUser);
+Router.route('/getNews').get(viewsController.getNews);
 module.exports=Router

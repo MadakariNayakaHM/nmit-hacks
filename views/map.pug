@@ -8,6 +8,7 @@ html(lang='en')
     script(async='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAm4Ac7BjHp3QL6dBg3328lTNaDtvZC1sI&callback=drawMap')
     title Document
   body(style='background-color: black;')
+  
     main#main
       div(align='center')
         #visualization
@@ -86,3 +87,10 @@ html(lang='en')
       var map = new google.visualization.Map(document.getElementById('chart_div'));
       map.draw(data, options);
       };
+section(style="display:block; width:100px; height:100px; margin:auto;")
+  #google_element
+  script(src='https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate')
+  script.
+    function loadGoogleTranslate() {
+    new google.translate.TranslateElement("google_element");
+    }
